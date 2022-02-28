@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OPTI Canal!{% endblock %}
+
+{% block body %}
+	<div class="gen-breadcrumb">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-12">
+					<h1>Séances à venir</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="gen-section-padding-3 js-filter">
+		<div class="container">
+			<div class="row">
+				<div class="filter gen-has-sticky col-xl-3 col-md-12 order-2 order-xl-1 mt-4 mt-xl-0">
+					{% include 'seance/_filter.html.twig' with { form: form, min: min, max: max, nbSeances: seances | length } only %}
+				</div>
+
+				<div class="col-xl-9 col-md-12 order-1 order-xl-2" style="margin-top: -2.5rem; display:block;">
+					<div class="d-flex justify-content-end space-between mb-2 js-filter-sorting">
+						{% include 'seance/_sorting.html.twig' with seances %}
+					</div>
+
+					<div class="js-filter-content">
+						{% include 'seance/_seances.html.twig' %}
+					</div>
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 js-filter-pagination">
+							{% include 'seance/_pagination.html.twig' with seances %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

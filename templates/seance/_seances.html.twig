@@ -1,0 +1,4 @@
+{% for seance in seances %}
+	{% include 'seance/_card.html.twig' with {seance : seance} only %}
+{% endfor %}
+

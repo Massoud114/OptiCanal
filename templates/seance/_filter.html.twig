@@ -1,0 +1,32 @@
+<div class="widget widget_recent_entries">
+	<h5 class="widget-title"><u>Filtrer les résultats</u></h5>
+	{{ form_start(form, {
+		attr : {
+			class : 'search-form js-filter-form'
+		}
+	}) }}
+	<h6>Intervalle de date</h6>
+	{{ form_row(form.startShowingDate) }}
+
+	{{ form_row(form.endShowingDate) }}
+
+	<h6 class="">Prix</h6>
+	<div class="row mb-4">
+		<div class="col-md-6">
+			{{ form_row(form.minPrice) }}
+		</div>
+		<div class="col-md-6">
+			{{ form_row(form.maxPrice) }}
+		</div>
+	</div>
+	<div id="price-slider" data-min="{{ min }}" data-max="{{ max }}"></div>
+	<button type="submit" class="search-submit">Filtrer</button>
+	{{ form_end(form) }}
+
+	<a href="{{ path('pdf.generate', {
+		'date': form.startShowingDate.vars.value != "" ? form.startShowingDate.vars.value : null,
+		'date': form.endShowingDate.vars.value != "" ? form.endShowingDate.vars.value : null,
+		'max': form.maxPrice.vars.value != "" ? form.maxPrice.vars.value : 0,
+		'min': form.minPrice.vars.value != "" ? form.minPrice.vars.value : 0
+	}) }}" class="btn btn-warning mt-4">Exporter | PDF</a>
+</div>

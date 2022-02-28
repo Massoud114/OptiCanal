@@ -1,0 +1,13 @@
+App\Entity\User:
+    user_{1}:
+        username: admin
+        picture: http://picsum.photos/id/<numberBetween(400,800)>/290/180
+        duration: <numberBetween(60, 240)>
+        synopsis: <paragraph()>
+        seance: '@seance_*'
+
+App\Entity\Seance:
+    seance_{1..45}:
+        price: <numerify('##000')>
+        showing_date: <dateTimeThisMonth()>
+        end_at: <dateTime()>

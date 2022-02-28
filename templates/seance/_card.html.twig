@@ -1,0 +1,29 @@
+<div class="gen-blog gen-blog-col-1" id="seance-{{ seance.id }}">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="gen-blog-post">
+				<div class="gen-blog-contain">
+					<h5 class="gen-blog-title">
+						<i class="fa fa-calendar"></i>&nbsp;{{ seance.showingDate.format('l m, M') }}&nbsp;
+						<i class="fa fa-clock"></i>&nbsp;{{ seance.showingDate.format('H:i') }} - {{ seance.endAt.format('H:i') }}
+					</h5>
+					<h5 class="gen-blog-title">
+						<i class="fa fa-play"></i>&nbsp;{{ seance.films | length }} Films
+					</h5>
+
+					<div class="gen-blog-title" style="font-weight:bold; font-size: 1.5rem; color: yellow">
+						{{ seance.price | number_format(0, ',', ' ') }} €
+					</div>
+					<div class="mt-4 gen-btn-container">
+						<a href="{{ path('seance.show', {id : seance.id}) }}" class="gen-button">
+							<div class="gen-button-block">
+								<span class="gen-button-text">Voir les films proposés</span>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

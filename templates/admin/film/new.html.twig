@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Film{% endblock %}
+
+{% block body %}
+	<div class="gen-breadcrumb">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-12">
+					<h1>Créer un nouveau film film</h1>
+				</div>
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-4">
+		{{ include('admin/film/_form.html.twig') }}
+	</div>
+
+	<div class="m-4">
+		<a class="btn btn-warning" href="{{ path('admin.film.index') }}">Retour à la liste</a>
+	</div>
+{% endblock %}
